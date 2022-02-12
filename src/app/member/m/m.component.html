@@ -1,0 +1,58 @@
+<form name="empform" #form="ngForm" autocomplete="off" (ngSubmit) = "onSubmit(form)">
+    <div class="form-group">
+        <div class="form-group">
+            <label>Mid</label>
+            <input type="number" name = "Mid"
+            #Mid = "ngModel"
+            [(ngModel)] = "memberServices.formData.Mid"
+            class="form-control"
+            placeholder="Enter Mid"
+            required 
+            [ngClass] = "{'is-invalid': Mid.touched && Mid.invalid}"/>
+            <!--Validation-->
+            <div class="validation-error" *ngIf = "Mid.touched && Mid.invalid">
+                <div *ngIf = "Mid.errors.required">
+                    Mid required
+                </div>
+            </div>
+        </div>
+        <label>Mname</label>
+        <input type="text" name = "Mname"
+        #Mname = "ngModel"
+        [(ngModel)] = "memberServices.formData.Mname"
+        class="form-control"
+        placeholder="Enter Mname"
+        required 
+        [ngClass] = "{'is-invalid': Mname.touched && Mname.invalid}"/>
+        <div class="validation-error" *ngIf = "Mname.touched && Mname.invalid">
+            <div *ngIf = "Mname.errors.required">
+                Mname is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Contact :  </label>
+        <input type="text" name = "Contact"
+        #Contact = "ngModel"
+        [(ngModel)] = "memberServices.formData.Contact"
+        class="form-control"
+        placeholder="Enter Contact"
+        required minlength="10" maxlength="10"
+        [ngClass] = "{'is-invalid': Contact.touched && Contact.invalid}"/>
+        <!--Validation-->
+        <div class="validation-error" *ngIf = "Contact.touched && Contact.invalid">
+           
+            <div *ngIf = "Contact.errors.required">
+                 Contact required
+            </div>
+        </div>
+    </div>
+    <!--Submit-->
+    <br>
+    <div class="form-group">
+        <button type="submit" 
+        class="btn btn-lg btn-primary form-control"
+        [disabled] = "!(form.valid && form.dirty)">Submit</button>
+    </div>
+
+</form>

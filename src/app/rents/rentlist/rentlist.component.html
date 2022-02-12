@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="header">
+        <div class="form=control">
+            </div>
+    </div>
+    <table class="table table-bordered table striped">
+        <thead>
+            <tr>
+                <th>Rentid</th>
+                <th>Mid</th>
+                <th>Bookid</th>
+                <th>Dayskept</th>
+                <th>Returned</th>
+            </tr>
+        </thead>
+       <tbody>
+        <tr *ngFor="let r of rentServices.rents ">
+            <td>{{r.Rentid}}</td>
+            <td>{{r.Mid}}</td>
+            <td>{{r.Bookid}}</td>
+            <td>{{r.Dayskept}}</td>
+            <td>{{r.Returned}}</td>
+            <td>
+                <button class="btn btn-sm btn-info" (click)="updateRent(r.Rentid)">Edit</button>
+                <button class="btn btn-sm btn-outline-danger"(click)="deleterent(r.Rentid)">X</button>
+            </td>
+        </tr>
+       </tbody>
+
+    </table>
+     
+</div>

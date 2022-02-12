@@ -1,0 +1,49 @@
+<div class="container">
+    <h3>Login here...</h3>
+    <hr>
+    <form [formGroup] = "loginForm" (ngSubmit) = "loginCredentials()">
+        
+      <!--User Name Control-->
+      <div>
+            <p>
+              <label for="exampleFormControlInput1" class="form-label">UserName</label>
+                <input type="Mname" placeholder="Enter User Name" name="Mname"
+                formControlName = "Mname" class="form-control" minlength="5" required
+                [ngClass]="{isvalid:formControls.Mname.touched && formControls.Mname.invalid}">
+            </p>
+        </div>
+        <!--UserName Validation-->
+        <div *ngIf ="isSubmitted && formControls.Mname.errors">
+              <div *ngIf = "formControls.Mname.errors"
+              style="color:crimson; text-align:left;">
+                  User Name is required!
+              </div>
+        </div>
+
+         <!--Password Name Control-->
+      <div>
+          <p>
+            <label for="exampleFormControlInput1" class="form-label">Contact</label>
+              <input type="Contact" placeholder="Enter Contact"
+              formControlName = "Contact" class="form-control">
+          </p>
+      </div>
+
+      <!--Password  Validation-->
+      <div *ngIf ="isSubmitted && formControls.Contact.errors">
+          <div *ngIf = "formControls.Contact.errors"
+          style="color:crimson; text-align:left;">
+          Contact is required!
+          </div>
+    </div>
+
+    <!--Button-->
+    <div>
+        <button class="btn btn-primary">Login</button>
+    </div>
+    <div *ngIf = "errors" style="color:crimson; text-align:left;">
+      {{errors}}
+    </div>
+    </form>
+
+</div>

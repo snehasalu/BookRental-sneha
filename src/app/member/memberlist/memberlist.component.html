@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="header">
+        <div class="form=control">
+        </div>
+    </div>
+    <table class="table table-bordered table striped">
+        <thead>
+            <tr>
+                <th>Mid</th>
+                <th>Mname</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+       <tbody>
+        <tr *ngFor="let m of memberServices.members ">
+            <td>{{m.Mid}}</td>
+            <td>{{m.Mname}}</td>
+            <td>{{m.Contact}}</td>
+            <td>
+                <button class="btn btn-sm btn-info" (click)="updateMember(m.Mid)">Edit</button>
+            </td>
+        </tr>
+       </tbody>
+
+    </table>
+    <div class="footer">
+    </div>
